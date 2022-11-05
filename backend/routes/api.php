@@ -2,7 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\API\PersonController;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -19,10 +19,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::prefix('person')->group(function () {
-    Route::get('/', 'App\Http\Controllers\PersonController@getAll');
-    //Route::get('/',[ PersonController::class, 'getAll']);
+    Route::get('/',[ PersonController::class, 'getAll']);
     Route::post('/',[ PersonController::class, 'create']);
-    Route::delete('/delete/{id}',[ PersonController::class, 'delete']);
+    Route::delete('/{id}',[ PersonController::class, 'delete']);
     Route::get('/{id}',[ PersonController::class, 'get']);
     Route::put('/{id}',[ PersonController::class, 'update']);
 });

@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Person extends Model
 {
     use HasFactory;
+
     protected $table = "person";
 
     protected $fillable = [
@@ -15,4 +16,5 @@ class Person extends Model
       'email',
       'phone'
     ];
+
 }

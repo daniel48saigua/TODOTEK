@@ -41,12 +41,13 @@ export class PersonService {
    )
  }
 
- update(id: string | number, person: any): Observable<Person> {
-   return this.httpClient.put<Person>(this.apiURL + id, JSON.stringify(person), this.httpOptions)
-   .pipe(
-     catchError(this.errorHandler)
-   )
- }
+ update(id:number, person: any): Observable<Person> {
+  return this.httpClient.put<Person>(this.apiURL + id, JSON.stringify(person), this.httpOptions)
+  .pipe(
+    catchError(this.errorHandler)
+  )
+}
+ 
 
  delete(id: string){
    return this.httpClient.delete<Person>(this.apiURL + id, this.httpOptions)

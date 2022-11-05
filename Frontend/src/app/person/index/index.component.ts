@@ -9,6 +9,10 @@ import { Person } from '../person';
 export class IndexComponent implements OnInit {
 
   persons: Person[] = [];
+  page: number = 1;
+  count: number = 0;
+  tableSize: number = 5;
+  tableSizes: any = [3, 6, 9, 12];
 
   // constructor() { }
   constructor(public personService: PersonService) { }
@@ -23,7 +27,7 @@ export class IndexComponent implements OnInit {
   deletePerson(id){
     this.personService.delete(id).subscribe(res => {
          this.persons = this.persons.filter(item => item.id !== id);
-         console.log('Person deleted successfully!');
+         
     })
   }
 
